@@ -8,7 +8,7 @@ require([
   ], function(WebMap, MapView, FeatureLayer, LayerList, Attachments, IdentityManager) {
   
     IdentityManager.registerOAuthInfos([{
-      appId: "yourAppId",  // replace with your app id
+      appId: "rLMgQSOnVhjpZUI2",  // replace with your app id
       portalUrl: "https://horizonsrc.maps.arcgis.com"  // replace with your organization's URL
     }]);
   
