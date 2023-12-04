@@ -40,10 +40,12 @@ require([
   
     view.ui.add(layerList, "top-right");
   
-    var attachments = new Attachments({
-      view: view,
-      layer: layer
-    });
+    view.when(function() {
+      var attachments = new Attachments({
+        view: view,
+        layer: layer
+      });
   
-    view.ui.add(attachments, "bottom-right");
+      view.ui.add(attachments, "bottom-right");
+    });
 });
