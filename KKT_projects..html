@@ -5,10 +5,26 @@
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>ArcGIS Web Map</title>
     <style>
-      html, body, #viewDiv {
+      html, body {
         padding: 0;
         margin: 0;
         height: 100%;
+        width: 100%;
+        background-color: #273747;
+        color: white;
+      }
+      #header {
+        background-color: #273747;
+        color: white;
+        padding: 10px;
+        text-align: center;
+        font-size: 2em;
+        font-weight: bold;
+      }
+      #viewDiv {
+        padding: 0;
+        margin: 0;
+        height: calc(100% - 50px); /* Adjusting for the header height */
         width: 100%;
       }
     </style>
@@ -17,6 +33,7 @@
     <script src="KKT_Comm_WebApp.js"></script> <!-- replace with your JavaScript file -->
   </head>
   <body>
+    <div id="header">KKT Community Projects</div>
     <div id="viewDiv"></div>
   </body>
 </html>
