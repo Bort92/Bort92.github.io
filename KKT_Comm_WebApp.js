@@ -27,9 +27,19 @@ require([
     var layer = new FeatureLayer({
       url: "https://services1.arcgis.com/VuN78wcRdq1Oj69W/arcgis/rest/services/KKT_Community_Projects/FeatureServer", // replace with your layer URL
       featureReduction: {
-        type: "cluster"
+        type: "cluster",
+        clusterRadius: "100px",  // Adjust as needed
+        popupTemplate: {  // Enable a popup for clusters
+          content: "This cluster represents {cluster_count} projects."
+        },
+        clusterMinSize: "24px",  // Minimum cluster size in pixels (optional)
+        clusterMaxSize: "60px"  // Maximum cluster size in pixels (optional)
       },
-      outFields: ["*"]
+      outFields: ["*"],
+      popupTemplate: {  // Enable a popup for single features
+        title: "{District}",
+        content: "This point represents a project in the {District} district."
+      }
     });
   
     webmap.add(layer);
@@ -47,5 +57,16 @@ require([
       });
   
       view.ui.add(attachments, "bottom-right");
+    });
+
+    view.on("click", function(event) {
+      view.hitTest(event).then(function(response) {
+        var result = response.results.filter(function(result) {
+          return result.graphic.layer === layer;
+        })[0];
+        if (result) {
+          layer.selectFeatures([result.graphic]);
+        }
+      });
     });
 });
