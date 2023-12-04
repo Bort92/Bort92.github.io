@@ -24,19 +24,45 @@ require([
       map: webmap
     });
   
-    var layer = new FeatureLayer({
-      url: "https://services1.arcgis.com/VuN78wcRdq1Oj69W/arcgis/rest/services/KKT_Community_Projects/FeatureServer", // replace with your layer URL
-      featureReduction: {
-        type: "cluster",
-        clusterRadius: "100px",  // Adjust as needed
-        popupTemplate: {  // Enable a popup for clusters
-          content: "This cluster represents {cluster_count} projects."
-        },
-        clusterMinSize: "24px",  // Minimum cluster size in pixels (optional)
-        clusterMaxSize: "60px"  // Maximum cluster size in pixels (optional)
+    const clusterConfig = {
+      type: "cluster",
+      clusterRadius: "100px",
+      popupTemplate: {
+        title: "Cluster summary",
+        content: "This cluster represents {cluster_count} projects.",
+        fieldInfos: [{
+          fieldName: "cluster_count",
+          format: {
+            places: 0,
+            digitSeparator: true
+          }
+        }]
       },
+      clusterMinSize: "24px",
+      clusterMaxSize: "60px",
+      labelingInfo: [{
+        deconflictionStrategy: "none",
+        labelExpressionInfo: {
+          expression: "Text($feature.cluster_count, '#,###')"
+        },
+        symbol: {
+          type: "text",
+          color: "#004a5d",
+          font: {
+            weight: "bold",
+            family: "Noto Sans",
+            size: "12px"
+          }
+        },
+        labelPlacement: "center-center",
+      }]
+    };
+  
+    var layer = new FeatureLayer({
+      url: "https://services1.arcgis.com/VuN78wcRdq1Oj69W/arcgis/rest/services/KKT_Community_Projects/FeatureServer",
+      featureReduction: clusterConfig,
       outFields: ["*"],
-      popupTemplate: {  // Enable a popup for single features
+      popupTemplate: {
         title: "{District}",
         content: "This point represents a project in the {District} district."
       }
