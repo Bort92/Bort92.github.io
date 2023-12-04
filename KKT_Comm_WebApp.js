@@ -17,9 +17,7 @@ require([
           id: "341248e420144a8a9fe2f4ac4065d199",
           apiKey:"AAPK7e43c4ab59e2403ab56144750045a6abA7OjBlbqZA2lDrLq0uFLvI9NmC1zK1UkctlwBUmUT8WOEgKKxUbkTDfv8oQ02uFJ"
         }
-      });
-  
-  });
+    });
   
     var view = new MapView({
       container: "viewDiv",
@@ -48,4 +46,4 @@ require([
     });
   
     view.ui.add(attachments, "bottom-right");
-  });
+});
