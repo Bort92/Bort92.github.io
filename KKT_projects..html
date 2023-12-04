@@ -14,7 +14,7 @@
     </style>
     <link rel="stylesheet" href="https://js.arcgis.com/4.15/esri/css/main.css">
     <script src="https://js.arcgis.com/4.15/"></script>
-    <script src="yourScript.js"></script> <!-- replace with your JavaScript file -->
+    <script src="KKT_Comm_WebApp.js"></script> <!-- replace with your JavaScript file -->
   </head>
   <body>
     <div id="viewDiv"></div>
