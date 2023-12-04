@@ -1,26 +1,3 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
-    <title>ArcGIS Web Map</title>
-    <style>
-      html, body, #viewDiv {
-        padding: 0;
-        margin: 0;
-        height: 100%;
-        width: 100%;
-      }
-    </style>
-    <link rel="stylesheet" href="https://js.arcgis.com/4.15/esri/css/main.css">
-    <script src="https://js.arcgis.com/4.15/"></script>
-    <script src="KKT_Comm_WebApp.js"></script> <!-- replace with your JavaScript file -->
-  </head>
-  <body>
-    <div id="viewDiv"></div>
-  </body>
-</html>
-
 require([
     "esri/WebMap",
     "esri/views/MapView",
@@ -63,4 +40,3 @@ require([
   
     view.ui.add(attachments, "bottom-right");
   });
-  
