@@ -3,14 +3,23 @@ require([
     "esri/views/MapView",
     "esri/layers/FeatureLayer",
     "esri/widgets/LayerList",
-    "esri/widgets/Attachments"
-  ], function(WebMap, MapView, FeatureLayer, LayerList, Attachments) {
+    "esri/widgets/Attachments",
+    "esri/identity/IdentityManager"
+  ], function(WebMap, MapView, FeatureLayer, LayerList, Attachments, IdentityManager) {
+  
+    IdentityManager.registerOAuthInfos([{
+      appId: "yourAppId",  // replace with your app id
+      portalUrl: "https://horizonsrc.maps.arcgis.com"  // replace with your organization's URL
+    }]);
+  
     var webmap = new WebMap({
         portalItem: {
           id: "341248e420144a8a9fe2f4ac4065d199",
           apiKey:"AAPK7e43c4ab59e2403ab56144750045a6abA7OjBlbqZA2lDrLq0uFLvI9NmC1zK1UkctlwBUmUT8WOEgKKxUbkTDfv8oQ02uFJ"
         }
       });
+  
+  });
   
     var view = new MapView({
       container: "viewDiv",
