@@ -83,14 +83,16 @@ require([
       view.ui.add(attachments, "bottom-right");
     });
 
-    view.on("click", function(event) {
-      view.hitTest(event).then(function(response) {
-        var result = response.results.filter(function(result) {
-          return result.graphic.layer === layer;
-        })[0];
-        if (result) {
-          layer.selectFeatures([result.graphic]);
-        }
+view.on("click", function(event) {
+  view.hitTest(event).then(function(response) {
+    var result = response.results.filter(function(result) {
+      return result.graphic.layer === layer;
+    })[0];
+    if (result) {
+      view.popup.open({
+        features: [result.graphic],
+        location: event.mapPoint
       });
-    });
+    }
+  });
 });
