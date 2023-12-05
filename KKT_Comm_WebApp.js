@@ -26,7 +26,7 @@ require([
   
     const clusterConfig = {
       type: "cluster",
-      clusterMinSize: 16.5,
+      clusterMinSize: "24px",  // increased from "16.5px"
       popupTemplate: {
         title: "Cluster Summary",
         content: "This cluster represents <b>{cluster_count}</b> features.",
