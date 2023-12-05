@@ -26,10 +26,10 @@ require([
   
     const clusterConfig = {
       type: "cluster",
-      clusterRadius: "100px",
+      clusterMinSize: 16.5,
       popupTemplate: {
-        title: "Cluster summary",
-        content: "This cluster represents {cluster_count} projects.",
+        title: "Cluster Summary",
+        content: "This cluster represents <b>{cluster_count}</b> features.",
         fieldInfos: [{
           fieldName: "cluster_count",
           format: {
@@ -38,8 +38,6 @@ require([
           }
         }]
       },
-      clusterMinSize: "24px",
-      clusterMaxSize: "60px",
       labelingInfo: [{
         deconflictionStrategy: "none",
         labelExpressionInfo: {
@@ -47,7 +45,7 @@ require([
         },
         symbol: {
           type: "text",
-          color: "#004a5d",
+          color: "white",
           font: {
             weight: "bold",
             family: "Noto Sans",
