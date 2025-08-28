@@ -1,1 +1,50 @@
-Hello, world! This is my personal page hosted on GitHub pages.
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <!-- Calcite Components (Esri system icons) -->
+  <script type="module" src="https://js.arcgis.com/calcite-components/2.6.0/calcite.esm.js"></script>
+  <link rel="stylesheet" href="https://js.arcgis.com/calcite-components/2.6.0/calcite.css" />
+
+  <title>Experience Builder – Help</title>
+  <style>
+    :root { color-scheme: light dark; }
+    html,body { margin:0; padding:0; }
+    body {
+      font: 14px/1.45 Avenir Next, Avenir, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+      padding: 14px;
+      background: transparent;  /* so it sits nicely in EB */
+    }
+    h2 { margin: 0 0 10px; font-size: 18px; }
+    ul { padding-left: 0; list-style: none; }
+    li { margin: 8px 0; }
+    calcite-icon { vertical-align: -2px; margin-right: 8px; }
+    .section { margin: 16px 0 8px; font-weight: 600; }
+    .note { margin-top: 12px; font-size: 12px; opacity: .8; }
+  </style>
+</head>
+<body>
+  <h2>Help</h2>
+
+  <div class="section">Toolbar</div>
+  <ul>
+    <li><calcite-icon icon="search" scale="s"></calcite-icon>Search – find features</li>
+    <li><calcite-icon icon="filter" scale="s"></calcite-icon>Filter – narrow results</li>
+    <li><calcite-icon icon="pencil" scale="s"></calcite-icon>Edit attributes (table fields)</li>
+    <li><calcite-icon icon="polygon" scale="s"></calcite-icon>Edit geometry (reshape polygons)</li>
+    <li><calcite-icon icon="table" scale="s"></calcite-icon>Table – view/edit inspection records</li>
+    <li><calcite-icon icon="layers" scale="s"></calcite-icon>Layers – toggle parent/related layers</li>
+    <li><calcite-icon icon="information" scale="s"></calcite-icon>Info – open this help</li>
+  </ul>
+
+  <div class="section">Editing tips</div>
+  <ul>
+    <li>Select a site polygon, then use Edit Geometry to drag/add/remove vertices.</li>
+    <li>Open the Site Inspection table to edit inspection fields; save to commit.</li>
+    <li>Relationships are preserved: polygons = parent layer; inspections = related table.</li>
+  </ul>
+
+  <div class="note">Changes update the live layer/table—double-check before saving.</div>
+</body>
+</html>
